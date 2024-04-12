@@ -67,12 +67,12 @@ ipcMain.on('FindProducto', (event, data) => {
 
           if (resultado) {
               console.log("entró al resultad");
-              event.sender.send('FindLineaResult', {
+              event.sender.send('FindProductoResult', {
                 producto: producto,
                 descripcion: descripcion,
                 precio: precio,
                 cantidad: cantidad,
-                idEan: idEan
+                idProducto: idProducto
               });
            }
            else{
@@ -83,7 +83,7 @@ ipcMain.on('FindProducto', (event, data) => {
                 buttons: ['OK'],
               });
               console.log('No se pudo registrar la linea');
-              event.sender.send('FindLineaResult', {
+              event.sender.send('FindProductoResult', {
                 error:'error'
               });
            }
