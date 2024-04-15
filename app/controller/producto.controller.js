@@ -1,15 +1,13 @@
- function ConsultarProducto(ean, callback) {
+ function ConsultarProducto(ean) {
     var ean = document.getElementById('Product').value;
     if (!ean) {
       console.log('Falta información obligatoria.');
-      callback(null);
       return;
     }else{
         try {
           send('FindProducto', ean);
         } catch (error) {
           console.error('Error al enviar la solicitud:', error);
-          callback(null);
           return;
         }
   
@@ -17,10 +15,6 @@
         
         if(data.error){
           console.log('El producto NO existe. ');
-          InputValue.value = '';
-          eanExiste = false;
-          isAddingProduct = false;
-          callback(null);
           return;
         }else if (data) {
           eanExiste = true;
@@ -33,15 +27,11 @@
           const descripcion = parsedData.descripcion;
           const precio = parsedData.precio;
           const cantidad = parsedData.cantidad;
-          const idProducto = parsedData.idProducto;
-  
-          callback({
-            producto: producto,
-            descripcion: descripcion,
-            precio: precio,
-            cantidad: cantidad,
-            idProducto:idProducto
-          });
+          const id = parsedData.idProducto;
+          $("#producto").html(producto);
+          $("#cantProducto").html(cantidad);
+          $("#costProducto").html(precio);
+          $("#detalleProducto").html(descripcion);
         }
       });
     }    

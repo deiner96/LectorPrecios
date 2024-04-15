@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain, dialog  } = require('electron');
 const path = require('node:path');
 const { findProducto } = require('../app/model/findProduct.js');
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -52,18 +52,10 @@ ipcMain.on('FindProducto', (event, data) => {
   const ean = data;
 
   try {
-    console.log('Datos recibidos en main.js/consultar ean:', data);
+        console.log('Datos recibidos en main.js/consultar ean:', data);
 
-    findProducto(ean, (error, resultado, producto, descripcion, precio, cantidad, idProducto) => {
-      if (error) {
-        console.error("Error en el procedimiento:", error);
-        dialog.showMessageBox({
-          type: 'warning',
-          title: 'Ocurrió Fallo',
-          message: 'Recarga la entrada. Detalles: ' + error.message,
-          buttons: ['OK'],
-        });
-      }
+        findProducto(ean, (error, resultado, producto, descripcion, precio, cantidad, idProducto) => {
+
 
           if (resultado) {
               console.log("entró al resultad");
@@ -88,11 +80,11 @@ ipcMain.on('FindProducto', (event, data) => {
               });
            }
       
-    });
-  } catch (error) {
-    console.error("Error en el procedimiento:", error);
-    return callback(error, null);
-  }
+        });
+      } catch (error) {
+        console.error("Error en el procedimiento:", error);
+        return callback(error, null);
+      }
 
 });
 
