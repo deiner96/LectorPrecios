@@ -6,7 +6,8 @@ Este proyecto se distribuye bajo la licencia Licencia Pública General de GNU v3
 
 ## **Créditos**
 Este proyecto fue creado por Deiner Joan Loaiza Giraldo y los Ingenieros: , Ingeniero de la Universidad CUN de Colombia. 
-Apoyo en la Gerencia de Proyectos de los Ingenieros :
+Apoyo en la Gerencia de Proyectos de los Ingenieros : 
 
 ## **Imagen Del Dash Principal**
-![image](https://github.com/deiner96/LectorPrecios/assets/124646372/62b7442a-4294-4578-9ad6-4bcda11c3e4e)
+![image](https://github.com/deiner96/LectorPrecios/assets/124646372/5df12644-d125-4114-80f0-fdcc5eacaec6)
+
